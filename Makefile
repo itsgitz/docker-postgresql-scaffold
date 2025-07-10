@@ -1,10 +1,12 @@
+.PHONY: run stop start destroy psql
+
 run:
-	docker-compose up -d --build --force-recreate
+	@docker-compose up -d --build --force-recreate
 stop:
-	docker-compose stop
+	@docker-compose stop
 start:
-	docker-compose start
+	@docker-compose start
 destroy:
-	docker-compose down -v
+	@docker-compose down -v
 psql:
-	docker-compose exec -it db psql -U postgres
+	@docker-compose exec -it db psql -U ${POSTGRES_USER:-postgres}
