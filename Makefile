@@ -9,4 +9,4 @@ start:
 destroy:
 	@docker-compose down -v
 psql:
-	@docker-compose exec -it db psql -U ${POSTGRES_USER:-postgres}
+	@docker-compose exec -it db psql -U $(user)
